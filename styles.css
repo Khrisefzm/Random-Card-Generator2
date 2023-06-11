@@ -1,0 +1,14 @@
+.card {
+    height: 300px;
+    width: 200px;
+  }
+  body {
+    background-color: green;
+  }
+  .rotate {
+    transform: rotate(180deg);
+  }
+  .red {
+    font-size: 60px;
+    font-weight: bold;
+  }
