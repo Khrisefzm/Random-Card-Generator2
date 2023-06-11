@@ -5,7 +5,7 @@ function generateCard(){
     let clover = '<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-suit-club-fill" viewBox="0 0 16 16"><path d="M11.5 12.5a3.493 3.493 0 0 1-2.684-1.254 19.92 19.92 0 0 0 1.582 2.907c.231.35-.02.847-.438.847H6.04c-.419 0-.67-.497-.438-.847a19.919 19.919 0 0 0 1.582-2.907 3.5 3.5 0 1 1-2.538-5.743 3.5 3.5 0 1 1 6.708 0A3.5 3.5 0 1 1 11.5 12.5z"/></svg>';
     let icon="";
     let numberForIcon = Math.floor(Math.random()*4+1);
-    //Cambiando íconos
+    //Change Icons
     if(numberForIcon==1) icon=diamond;
     if(numberForIcon==2) icon=heart;
     if(numberForIcon==3) icon=spade;
@@ -15,9 +15,19 @@ function generateCard(){
         let element = iconClass[i];
         element.innerHTML=`${icon}`
     }
-    
-    
+    //Change color of number
+    let cardNumber = document.getElementById("card-number");
+    if(numberForIcon<=2) cardNumber.className="red";
+    else cardNumber.className="black";
+    //Change number
+    let number=Math.floor(Math.random()*13+1);
+    if(number==1) number="A";
+    if(number==11) number = "J";
+    if (number==12) number = "Q";
+    if (number==13) number = "K";
+    cardNumber.innerText=number;
 }
 
+window.onload=generateCard;
 let btn1 = document.getElementById("btn1");
 btn1.addEventListener('click',generateCard);
